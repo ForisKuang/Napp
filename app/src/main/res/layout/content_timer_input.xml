@@ -43,19 +43,6 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Input the amount of time you have for sleep"
-        android:textColor="#FFFFFF"
-        android:textAlignment="center"
-        android:id="@+id/textView"
-        android:layout_marginTop="320dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/timerText"
-        android:layout_alignEnd="@+id/timerText" />
-
     <ImageButton
         android:layout_width="300dp"
         android:layout_height="50dp"
