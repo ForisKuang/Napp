@@ -1,6 +1,8 @@
 package com.example.kfc36_000.napp;
 
 import android.content.Intent;
+import android.content.res.AssetManager;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.design.widget.FloatingActionButton;
@@ -11,6 +13,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.provider.*;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,9 +26,14 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        View someView = findViewById(R.id.)
+
         Intent intent = getIntent();
         String time = intent.getExtras().getString("timeValue");
         int timeInMinutes = convertTimeToSeconds(time)/60;
+        TextView tx = (TextView)findViewById(R.id.timerText);
+        Typeface roboto = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Bold.ttf");
+        tx.setTypeface(roboto);
         /*
         Firebase firebase = new Firebase();
         int[] stageOneValues = firebase.getSleepArray();

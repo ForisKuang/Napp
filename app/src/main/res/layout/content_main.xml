@@ -13,6 +13,11 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textSize="32pt"
-        android:fontFamily="roboto"/>
+        android:gravity="center_horizontal"
+        android:id="@+id/timerText"
+        android:textColor="#FFFFFF"
+        android:background="#000000"
+
+        />
 
 </RelativeLayout>
