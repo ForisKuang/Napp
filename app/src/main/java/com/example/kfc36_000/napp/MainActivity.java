@@ -2,6 +2,7 @@ package com.example.kfc36_000.napp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +14,8 @@ import android.provider.*;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static int MINUTES_TO_MILLIS = 60000;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,13 +25,30 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String time = intent.getExtras().getString("timeValue");
-
+        int timeInMinutes = convertTimeToSeconds(time)/60;
         /*
         Firebase firebase = new Firebase();
         int[] stageOneValues = firebase.getSleepArray();
 
+        for(int i = 0; i < stageOneValues.length-1; i++) {
+            if(stageOneValues[i] < timeInMinutes && stageOneValues[i+1] > timeInMinutes) {
+                timeInMinutes = stageOneValues[i];
+                break;
+            }
+        }
 
          */
+        long timeInMillis = timeInMinutes*MINUTES_TO_MILLIS;
+        new CountDownTimer(timeInMillis, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+
+            }
+
+            public void onFinish() {
+
+            }
+        }.start();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -60,5 +80,14 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private int convertTimeToSeconds(String time) {
+        String[] timeValues = time.split(":");
+        int totalTime = 0;
+        for(int i = 0; i < timeValues.length; i++){
+            totalTime += Integer.parseInt(timeValues[i]) * (Math.pow(60, timeValues.length - 1 - i));
+        }
+        return totalTime;
     }
 }
