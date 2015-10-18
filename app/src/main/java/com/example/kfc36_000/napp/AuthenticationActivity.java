@@ -52,30 +52,29 @@ public class AuthenticationActivity extends AppCompatActivity {
 
 
     private static int MINUTES_TO_MILLIS = 60000;
-    ImageButton stopButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        Uri alarm = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
-        if(alarm == null) {
-            alarm = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-        }
-        final Ringtone alert = RingtoneManager.getRingtone(getApplicationContext(), alarm);
+        setContentView(R.layout.activity_authentication);
+        final ImageButton stopButton = (ImageButton)findViewById(R.id.stopButton);
         Intent intent = getIntent();
-        stopButton = (ImageButton) findViewById(R.id.stopButton);
         // Grabs the values from TimerInput for time for sleep and time till sleep
         String time = intent.getExtras().getString("timeForSleep");
         String timeTillSleep = intent.getExtras().getString("timeTillSleep");
         final int timeInMinutes = (convertTimeToSeconds(time)-convertTimeToSeconds(timeTillSleep))/60; // converts both to ints and then converts to mins
         final TextView tx = (TextView)findViewById(R.id.timerText);
+        Uri alarm = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
+        if(alarm == null) {
+            alarm = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+        }
+        final Ringtone alert = RingtoneManager.getRingtone(getApplicationContext(), alarm);
+
         // Typeface roboto = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Bold.ttf");
-        // tx.setTypeface(roboto);
+        // tx.setTypeface(roboto)
         /*
         Firebase firebase = new Firebase();
-        int[] stageOneValues = firebase.getSleepArray();
+        int[] stageOneValues =
 
         for(int i = 0; i < stageOneValues.length-1; i++) {
             if(stageOneValues[i] < timeInMinutes && stageOneValues[i+1] > timeInMinutes) {
@@ -83,9 +82,7 @@ public class AuthenticationActivity extends AppCompatActivity {
                 break;
             }
         }
-
-         */
-
+        */
         long timeInMillis = timeInMinutes*MINUTES_TO_MILLIS;
         new CountDownTimer(timeInMillis, 1000) {
 
@@ -109,7 +106,7 @@ public class AuthenticationActivity extends AppCompatActivity {
             }
 
             public void onFinish() {
-                tx.setText("00 00 00");
+                tx.setText("00  :  00  :  00");
                 alert.play();
                 stopButton.setVisibility(View.VISIBLE);
             }
@@ -122,7 +119,6 @@ public class AuthenticationActivity extends AppCompatActivity {
                 Intent intent = new Intent(AuthenticationActivity.this, FeelingsActivity.class);
                 intent.putExtra("sleepTime", timeInMinutes);
                 startActivity(intent);
-                finish();
             }
         });
     }

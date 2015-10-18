@@ -15,7 +15,7 @@ public class FeelingsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setContentView(R.layout.activity_feelings);
         ImageButton groggy = (ImageButton) findViewById(R.id.groggy);
         ImageButton refreshed = (ImageButton) findViewById(R.id.refreshed);
         ImageButton feelBetter = (ImageButton) findViewById(R.id.feelBetter);
@@ -59,7 +59,6 @@ public class FeelingsActivity extends AppCompatActivity {
     protected void connectBackToHome() {
         Intent intent = new Intent(FeelingsActivity.this,TimerInput.class);
         startActivity(intent);
-        finish();
     }
 
 }
