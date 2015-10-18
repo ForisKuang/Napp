@@ -19,6 +19,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        Intent intent = getIntent();
+        String time = intent.getExtras().getString("timeValue");
+
+        /*
+        Firebase firebase = new Firebase();
+        int[] stageOneValues = firebase.getSleepArray();
+
+
+         */
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

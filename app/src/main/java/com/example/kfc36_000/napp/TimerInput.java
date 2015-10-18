@@ -26,7 +26,7 @@ public class TimerInput extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String time = timerText.getText().toString();
-                Intent i = new Intent(TimerInput.this, Backend.class);
+                Intent i = new Intent(TimerInput.this, MainActivity.class);
                 i.putExtra("timeValue",time);
                 startActivity(i);
             }
