@@ -52,6 +52,7 @@ public class AuthenticationActivity extends AppCompatActivity {
 
 
     private static int MINUTES_TO_MILLIS = 60000;
+    ImageButton stopButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,14 +65,14 @@ public class AuthenticationActivity extends AppCompatActivity {
         }
         final Ringtone alert = RingtoneManager.getRingtone(getApplicationContext(), alarm);
         Intent intent = getIntent();
-        final ImageButton stopButton = (ImageButton) findViewById(R.id.stopButton);
+        stopButton = (ImageButton) findViewById(R.id.stopButton);
         // Grabs the values from TimerInput for time for sleep and time till sleep
         String time = intent.getExtras().getString("timeForSleep");
         String timeTillSleep = intent.getExtras().getString("timeTillSleep");
         final int timeInMinutes = (convertTimeToSeconds(time)-convertTimeToSeconds(timeTillSleep))/60; // converts both to ints and then converts to mins
         final TextView tx = (TextView)findViewById(R.id.timerText);
-        Typeface roboto = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Bold.ttf");
-        tx.setTypeface(roboto);
+        // Typeface roboto = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Bold.ttf");
+        // tx.setTypeface(roboto);
         /*
         Firebase firebase = new Firebase();
         int[] stageOneValues = firebase.getSleepArray();
@@ -127,10 +128,10 @@ public class AuthenticationActivity extends AppCompatActivity {
     }
 
     private int convertTimeToSeconds(String time) {
-        String[] timeValues = time.split("  :  ");
+        String[] timeValues = time.split(":");
         int totalTime = 0;
         for(int i = 0; i < timeValues.length; i++){
-            totalTime += Integer.parseInt(timeValues[i]) * (Math.pow(60, timeValues.length - 1 - i));
+            totalTime += Integer.parseInt(timeValues[i].trim()) * (Math.pow(60, timeValues.length - 1 - i));
         }
         return totalTime;
     }
