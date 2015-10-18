@@ -116,8 +116,8 @@ public class AuthenticationActivity extends AppCompatActivity implements GoogleA
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_authentication);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        // setSupportActionBar(toolbar);
         Firebase.setAndroidContext(this);
 
         Firebase rootRef = new Firebase("https://nappapp.firebaseio.com/");
@@ -127,8 +127,9 @@ public class AuthenticationActivity extends AppCompatActivity implements GoogleA
          *              FACEBOOK               *
          ***************************************/
         /* Load the Facebook login button and set up the tracker to monitor access token changes */
+        /*
         mFacebookCallbackManager = CallbackManager.Factory.create();
-        mFacebookLoginButton = (LoginButton) findViewById(R.id.login_with_facebook);
+        mFacebookLoginButton = (LoginButton) findViewById(R.id.login_with_facebo);
         mFacebookAccessTokenTracker = new AccessTokenTracker() {
             @Override
             protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
@@ -136,12 +137,12 @@ public class AuthenticationActivity extends AppCompatActivity implements GoogleA
                 AuthenticationActivity.this.onFacebookAccessTokenChange(currentAccessToken);
             }
         };
-
+         */
         /* *************************************
          *               GOOGLE                *
          ***************************************/
         /* Load the Google login button */
-        mGoogleLoginButton = (SignInButton) findViewById(R.id.login_with_google);
+        mGoogleLoginButton = (SignInButton) findViewById(R.id.loginButton);
         mGoogleLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -170,17 +171,18 @@ public class AuthenticationActivity extends AppCompatActivity implements GoogleA
         /* *************************************
          *                TWITTER              *
          ***************************************/
-        mTwitterLoginButton = (Button) findViewById(R.id.login_with_twitter);
+        /*mTwitterLoginButton = (Button) findViewById(R.id.login_with_twitter);
         mTwitterLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 loginWithTwitter();
             }
         });
-
+                  */
         /* *************************************
          *               PASSWORD              *
          ***************************************/
+        /*
         mPasswordLoginButton = (Button) findViewById(R.id.login_with_password);
         mPasswordLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -193,6 +195,7 @@ public class AuthenticationActivity extends AppCompatActivity implements GoogleA
          *              ANONYMOUSLY            *
          ***************************************/
         /* Load and setup the anonymous login button */
+        /*
         mAnonymousLoginButton = (Button) findViewById(R.id.login_anonymously);
         mAnonymousLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -200,15 +203,14 @@ public class AuthenticationActivity extends AppCompatActivity implements GoogleA
                 loginAnonymously();
             }
         });
-
+          */
         /* *************************************
          *               GENERAL               *
          ***************************************/
-        mLoggedInStatusTextView = (TextView) findViewById(R.id.login_status);
+        // mLoggedInStatusTextView = (TextView) findViewById(R.id.login_status);
 
         /* Create the Firebase ref that is used for all authentication with Firebase */
-        mFirebaseRef = new Firebase(getResources().getString(R.string.firebase_url));
-
+        // mFirebaseRef = new Firebase(getResources().getString(R.string.firebase_url));
         /* Setup the progress dialog that is displayed later when authenticating with Firebase */
         mAuthProgressDialog = new ProgressDialog(this);
         mAuthProgressDialog.setTitle("Loading");
@@ -268,9 +270,10 @@ public class AuthenticationActivity extends AppCompatActivity implements GoogleA
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    //@Override
+    //public boolean onCreateOptionsMenu(Menu menu) {
         /* If a user is currently authenticated, display a logout menu */
+        /*
         if (this.mAuthData != null) {
             getMenuInflater().inflate(R.menu.main, menu);
             return true;
@@ -278,7 +281,8 @@ public class AuthenticationActivity extends AppCompatActivity implements GoogleA
             return false;
         }
     }
-
+    */
+    /*
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -288,7 +292,7 @@ public class AuthenticationActivity extends AppCompatActivity implements GoogleA
         }
         return super.onOptionsItemSelected(item);
     }
-
+      */
     /**
      * Unauthenticate from Firebase and from providers where necessary.
      */
@@ -527,10 +531,11 @@ public class AuthenticationActivity extends AppCompatActivity implements GoogleA
      *               TWITTER              *
      **************************************
      */
+    /*
     private void loginWithTwitter() {
         startActivityForResult(new Intent(this, TwitterOAuthActivity.class), RC_TWITTER_LOGIN);
     }
-
+      */
     /* ************************************
      *              PASSWORD              *
      **************************************

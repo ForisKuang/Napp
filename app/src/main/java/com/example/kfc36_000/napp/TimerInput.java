@@ -21,8 +21,6 @@ public class TimerInput extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timer_input);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
         final EditText timerText = (EditText)findViewById(R.id.timerText);
         final EditText timeToSleep = (EditText) findViewById(R.id.timeToSleepText);
         ImageButton start = (ImageButton) findViewById(R.id.startButton);

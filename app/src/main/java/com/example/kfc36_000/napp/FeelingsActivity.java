@@ -15,9 +15,6 @@ public class FeelingsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_feelings);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         ImageButton groggy = (ImageButton) findViewById(R.id.groggy);
         ImageButton refreshed = (ImageButton) findViewById(R.id.refreshed);
