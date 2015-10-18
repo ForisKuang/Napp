@@ -103,7 +103,7 @@ public class TwitterOAuthActivity extends Activity {
                 resultIntent.putExtra("oauth_token", token.getToken());
                 resultIntent.putExtra("oauth_token_secret", token.getTokenSecret());
                 resultIntent.putExtra("user_id", token.getUserId() + "");
-                setResult(MainActivity.RC_TWITTER_LOGIN, resultIntent);
+                setResult(AuthenticationActivity.RC_TWITTER_LOGIN, resultIntent);
                 finish();
             }
         }.execute();
