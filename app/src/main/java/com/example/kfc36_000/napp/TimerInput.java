@@ -17,15 +17,13 @@ import android.widget.TextView;
 
 public class TimerInput extends AppCompatActivity {
 
-    public static final int RC_GOOGLE_LOGIN = 1;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timer_input);
         final EditText timerText = (EditText)findViewById(R.id.timerText);
         final EditText timeToSleep = (EditText) findViewById(R.id.timeToSleepText);
-        ImageButton start = (ImageButton) findViewById(R.id.startButton);
+        final ImageButton start = (ImageButton) findViewById(R.id.startButton);
         Typeface roboto = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Bold.ttf");
         timerText.setTypeface(roboto);
         timeToSleep.setTypeface(roboto);
@@ -35,7 +33,7 @@ public class TimerInput extends AppCompatActivity {
             public void onClick(View view) {
                 String time = timerText.getText().toString();
                 String timeTill = timeToSleep.getText().toString();
-                Intent i = new Intent(TimerInput.this, MainActivity.class);
+                Intent i = new Intent(TimerInput.this, AuthenticationActivity.class);
                 i.putExtra("timeForSleep",time);
                 i.putExtra("timeTillSleep", timeTill);
                 startActivity(i);
