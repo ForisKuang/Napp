@@ -40,6 +40,7 @@ public class TimerInput extends AppCompatActivity {
                 i.putExtra("timeForSleep",time);
                 i.putExtra("timeTillSleep", timeTill);
                 startActivity(i);
+                finish();
             }
         });
     }

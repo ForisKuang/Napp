@@ -94,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent finish = new Intent(MainActivity.this,FeelingsActivity.class);
                 finish.putExtra("sleepTime", timeInMinutes);
                 startActivity(finish);
+                finish();
             }
         });
     }
