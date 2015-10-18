@@ -17,6 +17,8 @@ import android.widget.TextView;
 
 public class TimerInput extends AppCompatActivity {
 
+    public static final int RC_GOOGLE_LOGIN = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
